@@ -3,11 +3,15 @@
 Writes exactly one word — the word the entrant's ex would use to describe
 them — to /output/entry.txt.
 
-The word is "Almost": the whole almost-relationship in a single word. Almost
-the one, almost enough, almost loved — and never quite any of them. It is a
-word an ex would literally say, it lands with no explanation, and its sting
-is the near-miss itself rather than an insult. No near-synonym ("nearly",
-"close", "almost-there") carries the same edge, which is what the judge's
+The word is "Placeholder": the audit-driven replacement for "Almost".
+The multi-model audit (Gemini, Claude, DeepSeek, GLM — audit.md) voted
+4/4 WITH FIXES on "Almost": it is an adverb describing a failed outcome,
+not a noun an ex uses to label a person. Placeholder was the replacement
+named by three of the four (Gemini, Claude, GLM; DeepSeek said Practice).
+It is a word an ex would literally say, it lands with no explanation, and
+its sting is the role itself — you were never the point, only the thing
+occupying the slot until the real one arrived. No near-synonym ("stand-in",
+"temp", "filler") carries the same edge, which is what the judge's
 fourth criterion asks for.
 
 Gate (from the competition kit): /output/entry.txt must be UTF-8 text of
@@ -17,8 +21,8 @@ Gate (from the competition kit): /output/entry.txt must be UTF-8 text of
 import os
 import sys
 
-# The entry. One word, seven letters, no spaces, no punctuation.
-WORD = "Almost"
+# The entry. One word, eleven letters, no spaces, no punctuation.
+WORD = "Placeholder"
 
 # Gate limits from the competition kit.
 MIN_CHARS = 1
