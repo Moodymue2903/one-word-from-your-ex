@@ -51,6 +51,18 @@ def validate_word(word):
     return word
 
 
+def verify_output(word, output_path):
+    """Read the written file back and confirm it holds exactly the word.
+
+    A write that silently lands the wrong bytes would ship a disqualified
+    entry, so the program checks its own output before reporting success.
+    Returns True when the file reads back byte-identical to the word.
+    """
+    with open(output_path, "r", encoding="utf-8", newline="") as handle:
+        on_disk = handle.read()
+    return on_disk == word
+
+
 def write_entry(word, output_path):
     """Validate the word and write it to the output path as UTF-8 text."""
     checked = validate_word(word)
@@ -59,6 +71,8 @@ def write_entry(word, output_path):
         os.makedirs(directory, exist_ok=True)
     with open(output_path, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(checked)
+    if not verify_output(checked, output_path):
+        raise ValueError("read-back check failed for %s" % output_path)
     return checked
 
 
